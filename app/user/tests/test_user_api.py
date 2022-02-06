@@ -12,6 +12,7 @@ ME_URL = reverse('user:me')
 
 
 def create_user(**params):
+    """Helper function to create new user"""
     return get_user_model().objects.create_user(**params)
 
 
@@ -26,7 +27,7 @@ class PublicUserAPITests(TestCase):
         payload = {
             'email': 'test@testemail.com',
             'password': 'testpwd',
-            'name': 'Test Name'
+            'name': 'Test Name',
         }
         res = self.client.post(CREATE_USER_URL, payload)
 
@@ -40,7 +41,7 @@ class PublicUserAPITests(TestCase):
         payload = {
             'email': 'test_user@test_email.com',
             'password': 'testpwd',
-            'name': 'test_name'
+            'name': 'test_name',
         }
         create_user(**payload)
 
@@ -137,7 +138,6 @@ class PrivateUsersApiTests(TestCase):
     def test_update_user_profile(self):
         """Test updating the user profile for authenticated user"""
         payload = {
-            'email': 'new_test_user@test_email.com',
             'name': 'New Test Name',
             'password': 'newtestpwd'
         }
