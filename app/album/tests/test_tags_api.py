@@ -7,10 +7,10 @@ from rest_framework.test import APIClient
 
 from core.models import Tag
 
-from vinyl.serializers import TagSerializer
+from album.serializers import TagSerializer
 
 
-TAGS_URL = reverse('vinyl:tag-list')
+TAGS_URL = reverse('album:tag-list')
 
 
 class PublicTagsApiTests(TestCase):

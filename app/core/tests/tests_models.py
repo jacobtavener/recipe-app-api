@@ -53,3 +53,12 @@ class ModelTests(TestCase):
         )
 
         self.assertEqual(str(tag), tag.name)
+
+    def test_artist_str(self):
+        """Test the Artist string representation"""
+        artist = models.Artist.objects.create(
+            user=sample_user(),
+            name='Muddy Waters'
+        )
+
+        self.assertEqual(str(artist), artist.name)
