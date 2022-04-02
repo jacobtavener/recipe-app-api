@@ -9,7 +9,7 @@ from vinyl import serializers
 
 class TagViewSet(viewsets.GenericViewSet, mixins.ListModelMixin):
     """Manage tags in the database"""
-    authenication_classes = (TokenAuthentication,)
+    authentication_classes = (TokenAuthentication,)
     permission_classes = (IsAuthenticated,)
     queryset = Tag.objects.all()
     serializer_class = serializers.TagSerializer
